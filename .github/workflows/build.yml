@@ -1,0 +1,20 @@
+name: Build ShadowCalc APK
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update -y && sudo apt-get install -y libtool autoconf automake build-essential git zip unzip openjdk-17-jdk python3-distutils
+      - run: pip install --upgrade buildozer cython
+      - run: yes y | buildozer -v android debug --allow-minsdk-ndkapi-mismatch
+      - uses: actions/upload-artifact@v4
+        with:
+          name: shadowcalc-apk
+          path: bin/*.apk
