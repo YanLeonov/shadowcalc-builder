@@ -1,1 +1,19 @@
-
+[app]
+title = ShadowCalc
+package.name = shadowcalc9
+package.domain = org.test
+source.dir = .
+source.include_exts = py,png,jpg,kv,atlas
+version = 0.1
+requirements = python3,kivy,pyjnius
+orientation = portrait
+android.permissions = ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION
+android.api = 33
+android.minapi = 21
+android.sdk = 34
+android.ndk = 25b
+android.ndk_api = 21
+android.archs = arm64-v8a
+android.allow_multidex = True
+android.enable_androidx = True
+android.wakelock = False
